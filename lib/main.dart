@@ -53,16 +53,36 @@ class MyHomePage extends StatelessWidget {
                 return Card(
                     child: Row(children: [
                   Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.purple, width: 2),
+                    ),
+                    padding: EdgeInsets.all(10),
                     child: Text(
-                      tx.amount.toString(),
+                      '\$${tx.amount}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.purple),
                     ),
                   ),
-                  Column(children: [
-                    Text(tx.title),
-                    Text(
-                      tx.date.toString(),
-                    ),
-                  ])
+                  Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          tx.title,
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          tx.date.toString(),
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                        ),
+                      ])
                 ]));
               }).toList(),
             ),
